@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Outlook Simulado</title>
+  <style>
+    body {
+      font-family: Segoe UI, sans-serif;
+      background-color: #f3f3f3;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #0078d4;
+      text-align: center;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .login-box button {
+      background-color: #0078d4;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .login-box button:hover {
+      background-color: #005a9e;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Entrar</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="senha" placeholder="Senha" />
+    <button onclick="simularLogin()">Entrar</button>
+  </div>
+
+  <script>
+    function simularLogin() {
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+      console.log("Email:", email);
+      console.log("Senha:", senha);
+      alert(`Email: ${email}\nSenha: ${senha}`);
+    }
+  </script>
+</body>
+</html>
