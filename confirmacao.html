@@ -8,15 +8,31 @@
 </head>
 <body>
   <div class="login-box">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" width="150" />
     <h2>Confirme sua identidade</h2>
     <p>Para proteger sua conta, envie o código recebido por SMS ou e-mail alternativo.</p>
+
     <form onsubmit="event.preventDefault(); verificarCodigo();">
       <input type="text" id="codigo" placeholder="Digite o código" required />
       <button type="submit">Verificar</button>
     </form>
-    <a href="#">Não recebeu o código?</a>
+
+    <p>
+      <a href="mfa.html">Não recebeu o código?</a>
+    </p>
   </div>
-  <script src="js/confirmacao.js"></script>
+
+  <script>
+    function verificarCodigo() {
+      const codigo = document.getElementById("codigo").value;
+
+      if (codigo === "123456") {
+        alert("Código verificado com sucesso!");
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Código inválido. Tente novamente.");
+      }
+    }
+  </script>
 </body>
 </html>

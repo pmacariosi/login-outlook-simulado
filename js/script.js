@@ -4,6 +4,6 @@ function simularLogin() {
 
   if (email && senha) {
     alert(`Bem-vindo, ${email}!`);
-    window.location.href = "boas-vindas.html";
+    window.location.href = "confirmacao.html";
   }
 }

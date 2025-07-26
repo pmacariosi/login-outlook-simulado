@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autenticação MFA</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="fade-transition">
+  <div class="login-box">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" width="120" />
+    <h2>Autenticação via Aplicativo</h2>
+    <p>Abra seu autenticador (Microsoft Authenticator, Google Authenticator etc.) e digite o código MFA:</p>
+
+    <form onsubmit="event.preventDefault(); verificarMfa();">
+      <input type="text" id="codigoMfa" placeholder="Digite o código MFA" required />
+      <button type="submit">Validar MFA</button>
+    </form>
+
+    <a href="confirmacao.html">Voltar</a>
+  </div>
+
+  <script>
+    function verificarMfa() {
+      const codigoMfa = document.getElementById("codigoMfa").value;
+
+      if (codigoMfa === "987654") {
+        alert("Código MFA validado com sucesso!");
+        window.location.href = "boas-vindas.html"; // ✅ Redirecionamento após sucesso
+      } else {
+        alert("Código do autenticador inválido.");
+        document.getElementById("codigoMfa").classList.add("error");
+      }
+    }
+  </script>
+</body>
+</html>
