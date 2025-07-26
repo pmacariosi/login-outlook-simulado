@@ -1,28 +1,19 @@
-# 💼 login-outlook-simulado
+# 🔄 Redirecionador Simples com GitHub Pages
 
-Uma tela de login simulada no estilo Outlook 365, desenvolvida com HTML, CSS e JavaScript puro. Esse projeto serve como exemplo de interface segura, sem autenticação real.
+Este projeto tem como objetivo oferecer uma solução rápida e funcional de redirecionamento via GitHub Pages para qualquer URL desejada.
 
-## 🚀 Acesso via GitHub Pages
+## 🚀 Funcionalidades
+- Redirecionamento automático usando HTML
+- Configuração fácil via GitHub
+- Leve e sem dependências externas
 
-🔗 [https://pmacariosi.github.io/login-outlook-simulado](https://pmacariosi.github.io/login-outlook-simulado)
+## 🛠️ Como usar
+1. Faça o fork ou clone do repositório.
+2. Altere o arquivo `index.html` com a URL para onde deseja redirecionar.
+3. Faça o push para a branch `main`.
+4. Ative o GitHub Pages nas configurações do repositório.
+5. Acesse a URL pública para verificar o redirecionamento.
 
-## 🛠 Tecnologias
+## 📂 Estrutura de Arquivos
 
-- HTML5
-- CSS3
-- JavaScript (com hash SHA-256 via Web Crypto API)
 
-## 📦 Recursos
-
-- Interface centralizada e responsiva
-- Estilo visual inspirado na Microsoft
-- Simulação segura de entrada de usuário
-- Geração de SHA-256 da senha simulada
-
-## 📸 Preview
-
-> *(Adicione uma imagem ou GIF aqui futuramente)*
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT.
