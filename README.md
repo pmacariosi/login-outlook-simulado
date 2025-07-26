@@ -4,7 +4,7 @@ Uma tela de login simulada no estilo Outlook 365, desenvolvida com HTML, CSS e J
 
 ## 🚀 Acesso via GitHub Pages
 
-🔗 [https://seu-usuario.github.io/login-outlook-simulado](https://seu-usuario.github.io/login-outlook-simulado)
+🔗 [https://pmacariosi.github.io/login-outlook-simulado](https://pmacariosi.github.io/login-outlook-simulado)
 
 ## 🛠 Tecnologias
 
