@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Logs da Simulação</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+    h2 { color: #333; }
+    pre { background: #fff; padding: 15px; border: 1px solid #ccc; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h2>📁 Dados Recebidos</h2>
+  <pre id="logs">Carregando...</pre>
+
+  <script>
+    fetch('http://localhost:3000/logs')
+      .then(res => res.text())
+      .then(texto => {
+        document.getElementById('logs').textContent = texto;
+      })
+      .catch(erro => {
+        document.getElementById('logs').textContent = '⚠️ Erro ao carregar os logs.';
+        console.error(erro);
+      });
+  </script>
+</body>
+</html>

